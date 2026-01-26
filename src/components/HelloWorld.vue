@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref, useTemplateRef, type Ref } from "vue"
+import { onMounted, ref, type Ref } from "vue"
 import {linked,Mail, ScrollIntoView} from "../../models/link_to_other_dependancies"
 import { imagesLoader } from "../../models/link_to_other_dependancies"
+import {Link_For_Project } from "../../Controller/Link_for_project" 
   class Linked {
     static github() {
         linked("https://github.com/wnomena")
@@ -22,6 +23,7 @@ const virtual_dom = ref(null)
 const value_to_insert = "Passionné par le codage, je peux effectuer d’innombrable application avec les technologies Javascript et Python, etc..."
 const isLoading:Ref<0 | 1> = ref(0)
 const image_path = ["../assets/vue-transparent-removebg-preview.png","../assets/nuxt-seeklogo.png","../assets/62a4bbf6fdee15d2905007bb.png","../assets/github-mark-white.png","../assets/gmail_new_logo_icon_159149.png","../assets/logo-linkedin-icon-4096.png","../assets/icone-de-telephone-recto.png"]
+
 onMounted(() => {
   imagesLoader([...image_path],function(value:Boolean) {
       if(value) {
@@ -89,7 +91,7 @@ onMounted(() => {
                 <p style="margin: 0;" class="">Vue.js</p>
               </div>
             </div>
-            <div data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+            <div style="cursor: pointer;" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/nuxt-seeklogo.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
                 <h4 style="margin: 0;" class="col-12 ">Personnel</h4>
@@ -97,25 +99,25 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="col-12 d-flex flex-wrap m-auto gap-3">
-            <div data-aos="fade-right" data-aos-delay="700" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+          <div style="cursor: pointer;" class="col-12 d-flex flex-wrap m-auto gap-3">
+            <div v-on:click="Link_For_Project.Client" data-aos="fade-right" data-aos-delay="700" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
-                <h4 style="margin: 0;" class="col-12 ">Task Manager</h4>
-                <p style="margin: 0;" class="">Flask | Jquery</p>
+                <h4 style="margin: 0;" class="col-12 ">Caponmada Travel</h4>
+                <p style="margin: 0;" class="">Flask | Vue</p>
               </div>
             </div>
-            <div data-aos="fade-left" data-aos-delay="900" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
+            <div style="cursor: pointer;" v-on:click="Link_For_Project.Desktop" data-aos="fade-left" data-aos-delay="900" data-aos-duration="1000" class="border rounded  col-lg-5 col-md-5 col-12 d-flex">
               <img class="col-4 p-3" src="../assets/62a4bbf6fdee15d2905007bb.png" alt="">
               <div style="height: fit-content;" class="col-7 gap-0 text-light align-self-center">
-                <h4 style="margin: 0;" class="col-12 ">Full-Stack App</h4>
-                <p style="margin: 0;" class="">Flask | Vue.js</p>
+                <h4 style="margin: 0;" class="col-12 ">PySide App</h4>
+                <p style="margin: 0;" class="">Python | PySide6 </p>
               </div>
             </div>
           </div>
        </div>
     </div>
-    <div class="col-10 element-to-list-different-way-to-contact m-auto pb-5">
+    <div style="padding-bottom: 20px;" class="col-10 element-to-list-different-way-to-contact m-auto">
       <h3>Mes Contacts</h3>
       <div style="cursor: pointer;" class="col-12 d-flex justify-content-around element-to-contain-some-mode-of-contact gap-2">
         <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" v-on:click="Linked.github()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
@@ -129,10 +131,6 @@ onMounted(() => {
         <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000" v-on:click="Linked.linkedin()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
           <img class="p-2" src="../assets/logo-linkedin-icon-4096.png" alt="">
           <h3 class="align-self-center d-lg-block d-md-block d-none">Linkedin</h3>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000" v-on:click="Linked.whatsapp()" style="height: 10vh;" class="col-3 border rounded d-flex justify-content-lg-start justify-content-md-start justify-content-center gap-1">
-          <img class="p-2 rounded" src="../assets/icone-de-telephone-recto.png" alt="">
-          <h3 class="align-self-center d-lg-block d-md-block d-none"> Whatsapp</h3>
         </div>
       </div>
     </div>
